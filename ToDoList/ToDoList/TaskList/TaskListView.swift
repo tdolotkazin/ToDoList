@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct MainView: View {
+struct TaskListView: View {
 
-    @StateObject var viewModel: MainViewModel
+    @StateObject var viewModel: TaskListViewModel
 
     var body: some View {
         NavigationView {
@@ -14,7 +14,11 @@ struct MainView: View {
                         Text("Добавить новую задачу")
                     }
                     ForEach(viewModel.tasks) { task in
-                        taskView(for: task)
+                        NavigationLink {
+                            DetailView(viewModel: DetailViewModel(task: task))
+                        } label: {
+                            taskView(for: task)
+                        }
                     }
                 }.navigationTitle("Список задач")
             }
@@ -45,18 +49,17 @@ struct MainView: View {
     @ViewBuilder
     func priorityView(for priority: TaskPriority) -> some View {
         switch priority {
-            case .critical:
-                Image(systemName: "flame")
-                    .foregroundColor(.red)
-            case .high:
-                Image(systemName: "chevron.up")
-                    .foregroundColor(.orange)
-            case .medium:
-                Image(systemName: "equal")
-                //                    .foregroundColor(.black)
-            case .low:
-                Image(systemName: "chevron.down")
-                    .foregroundColor(.green)
+        case .critical:
+            Image(systemName: "flame")
+                .foregroundColor(.red)
+        case .high:
+            Image(systemName: "chevron.up")
+                .foregroundColor(.orange)
+        case .medium:
+            Image(systemName: "equal")
+        case .low:
+            Image(systemName: "chevron.down")
+                .foregroundColor(.green)
         }
     }
 
@@ -66,8 +69,8 @@ struct MainView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: MainViewModel(tasks: MockTasks.tasks))
+        TaskListView(viewModel: TaskListViewModel(tasks: MockTasks.tasks))
     }
 }

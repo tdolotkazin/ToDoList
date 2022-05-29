@@ -7,7 +7,13 @@ struct Task: Identifiable {
     var description: String?
     var isCompleted: Bool
 
-    init(id: UUID = UUID(), name: String, priority: TaskPriority, description: String? = nil, isCompleted: Bool = false) {
+    init(
+        id: UUID = UUID(),
+        name: String,
+        priority: TaskPriority,
+        description: String? = nil,
+        isCompleted: Bool = false
+    ) {
         self.id = id
         self.name = name
         self.priority = priority
@@ -15,7 +21,6 @@ struct Task: Identifiable {
         self.isCompleted = isCompleted
     }
 }
-
 
 enum TaskPriority: String, CaseIterable, Identifiable {
     var id: Self { self }

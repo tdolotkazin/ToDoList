@@ -1,9 +1,9 @@
 import Foundation
 
-class MainViewModel: ObservableObject {
+class TaskListViewModel: ObservableObject {
     var tasks: [Task]
 
     init(tasks: [Task] = []) {
-        self.tasks = tasks
+        self.tasks = MockTasks.tasks
     }
 }
