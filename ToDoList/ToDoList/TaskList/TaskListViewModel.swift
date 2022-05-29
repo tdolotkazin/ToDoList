@@ -8,13 +8,14 @@ class TaskListViewModel: ObservableObject {
 
     init(tasks: [Task] = []) {
         self.tasks = tasks
-    }
-
-    func onAppear() {
         repository.$tasks
-            .sink { [unowned self] _ in
-                self.tasks = repository.tasks
+            .sink { [unowned self] tasks in                
+                self.tasks = tasks
             }
             .store(in: &cancellables)
+    }
+
+    func delete(task: Task) {
+        repository.delete(task)
     }
 }

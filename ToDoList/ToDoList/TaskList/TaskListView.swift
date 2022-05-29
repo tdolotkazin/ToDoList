@@ -19,13 +19,19 @@ struct TaskListView: View {
                         } label: {
                             taskView(for: task)
                         }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                viewModel.delete(task: task)
+                            } label: {
+                                Image(systemName: "arrow.up.bin.fill")
+                                    .foregroundColor(.white)
+                            }
+                        }
                     }
+
                 }.navigationTitle("Список задач")
             }
         }
-        .onAppear(perform: {
-            viewModel.onAppear()
-        })
     }
 
     @ViewBuilder

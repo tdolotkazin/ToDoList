@@ -16,22 +16,22 @@ class TaskRepository: TaskRepositoryProtocol, ObservableObject {
         // TODO: Move key to constants
         self.tasks = userDefaults.read([Task].self, with: "tasks") ?? []
         $tasks
-            .sink { [unowned self] tasks in
+            .sink { [unowned self] tasks in                
                 self.userDefaults.set(object: tasks, forKey: "tasks")
             }
             .store(in: &cancellables)
     }
 
-    deinit {
-        print("Deinited")
-    }
-
     func saveTask(task: Task) {
-        print("Saving task")
         guard let index = tasks.firstIndex(where: { $0.id == task.id }) else {
             tasks.append(task)
             return
         }
         tasks[index] = task
+    }
+
+    func delete(_ task: Task) {
+        guard let index = tasks.firstIndex(where: { $0.id == task.id }) else { return }
+        tasks.remove(at: index)
     }
 }

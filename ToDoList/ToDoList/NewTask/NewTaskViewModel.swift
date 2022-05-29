@@ -10,7 +10,7 @@ class NewTaskViewModel: ObservableObject {
     var repository: TaskRepositoryProtocol = DIContainer.repository
 
     func addTask() {
-        let task = Task(name: name, priority: priority, description: description)
+        let task = Task(name: name, priority: priority, description: description.isEmpty ? nil : description)
         repository.saveTask(task: task)
     }
 }

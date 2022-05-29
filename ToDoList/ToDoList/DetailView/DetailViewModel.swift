@@ -21,6 +21,10 @@ class DetailViewModel: ObservableObject {
     }
 
     func saveTask() {
+        task.name = name
+        task.description = description.isEmpty ? nil : description
+        task.priority = priority
+        task.isCompleted = status
         repository.saveTask(task: task)
     }
 }
