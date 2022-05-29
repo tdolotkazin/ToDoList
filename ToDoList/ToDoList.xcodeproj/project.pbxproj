@@ -19,6 +19,7 @@
 		22B7B7152841232D004EB58D /* MockTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B7142841232D004EB58D /* MockTasks.swift */; };
 		22B7B71728412C7F004EB58D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B71628412C7F004EB58D /* DetailView.swift */; };
 		22B7B71928412DEE004EB58D /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B71828412DEE004EB58D /* NewTaskView.swift */; };
+		22B7B71D2842697F004EB58D /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B71C2842697F004EB58D /* NewTaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		22B7B7142841232D004EB58D /* MockTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTasks.swift; sourceTree = "<group>"; };
 		22B7B71628412C7F004EB58D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		22B7B71828412DEE004EB58D /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
+		22B7B71C2842697F004EB58D /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				22B7B6E82841204E004EB58D /* MainView.swift */,
 				22B7B71628412C7F004EB58D /* DetailView.swift */,
 				22B7B71828412DEE004EB58D /* NewTaskView.swift */,
+				22B7B71C2842697F004EB58D /* NewTaskViewModel.swift */,
 				22B7B71028412100004EB58D /* MainViewModel.swift */,
 				22B7B71228412106004EB58D /* Task.swift */,
 				22B7B6EA28412050004EB58D /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 			files = (
 				22B7B71328412106004EB58D /* Task.swift in Sources */,
 				22B7B71928412DEE004EB58D /* NewTaskView.swift in Sources */,
+				22B7B71D2842697F004EB58D /* NewTaskViewModel.swift in Sources */,
 				22B7B71728412C7F004EB58D /* DetailView.swift in Sources */,
 				22B7B6E92841204E004EB58D /* MainView.swift in Sources */,
 				22B7B6E72841204E004EB58D /* ToDoListApp.swift in Sources */,

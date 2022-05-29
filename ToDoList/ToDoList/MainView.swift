@@ -9,7 +9,7 @@ struct MainView: View {
             VStack {
                 List {
                     NavigationLink {
-                        
+                        NewTaskView()
                     } label: {
                         Text("Добавить новую задачу")
                     }

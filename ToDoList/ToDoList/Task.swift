@@ -17,7 +17,9 @@ struct Task: Identifiable {
 }
 
 
-enum TaskPriority: String {
+enum TaskPriority: String, CaseIterable, Identifiable {
+    var id: Self { self }
+
     case critical = "Критический"
     case high = "Высокий"
     case medium = "Средний"
