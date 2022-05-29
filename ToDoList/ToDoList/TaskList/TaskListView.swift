@@ -3,6 +3,7 @@ import SwiftUI
 struct TaskListView: View {
 
     @StateObject var viewModel: TaskListViewModel
+    var stringProvider = StringProvider()
 
     var body: some View {
         NavigationView {
@@ -11,7 +12,7 @@ struct TaskListView: View {
                     NavigationLink {
                         NewTaskView()
                     } label: {
-                        Text("Добавить новую задачу")
+                        Text(stringProvider.addNewTask)
                     }
                     ForEach(viewModel.tasks) { task in
                         NavigationLink {
@@ -29,7 +30,7 @@ struct TaskListView: View {
                         }
                     }
 
-                }.navigationTitle("Список задач")
+                }.navigationTitle(stringProvider.taskList)
             }
         }
     }

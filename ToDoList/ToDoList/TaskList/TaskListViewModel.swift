@@ -9,7 +9,7 @@ class TaskListViewModel: ObservableObject {
     init(tasks: [Task] = []) {
         self.tasks = tasks
         repository.$tasks
-            .sink { [unowned self] tasks in                
+            .sink { [unowned self] tasks in
                 self.tasks = tasks
             }
             .store(in: &cancellables)
