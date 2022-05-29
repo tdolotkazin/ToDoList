@@ -3,6 +3,8 @@ import SwiftUI
 struct NewTaskView: View {
 
     @StateObject var viewModel = NewTaskViewModel()
+    @Environment(\.presentationMode)
+    private var presentationMode
 
     var body: some View {
         VStack(spacing: 40) {
@@ -15,6 +17,7 @@ struct NewTaskView: View {
                     .foregroundColor(.gray)
                 Button {
                     viewModel.addTask()
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     addButton
                 }
@@ -58,7 +61,9 @@ struct NewTaskView: View {
 }
 
 struct NewTaskView_Previews: PreviewProvider {
+    static let repository = MockTaskRepository()
     static var previews: some View {
         NewTaskView()
+            .environmentObject(repository)
     }
 }

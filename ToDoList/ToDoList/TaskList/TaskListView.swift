@@ -23,7 +23,9 @@ struct TaskListView: View {
                 }.navigationTitle("Список задач")
             }
         }
-
+        .onAppear(perform: {
+            viewModel.onAppear()
+        })
     }
 
     @ViewBuilder

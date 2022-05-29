@@ -4,11 +4,13 @@ import CoreText
 class DetailViewModel: ObservableObject {
 
     @Published var task: Task
-    @Published var isEditing = true
+    @Published var isEditing = false
     @Published var name: String
     @Published var description: String
     @Published var priority: TaskPriority
     @Published var status: Bool
+
+    var repository: TaskRepositoryProtocol = DIContainer.repository
 
     init(task: Task) {
         self.task = task
@@ -19,6 +21,6 @@ class DetailViewModel: ObservableObject {
     }
 
     func saveTask() {
-        print("Save task")
+        repository.saveTask(task: task)
     }
 }

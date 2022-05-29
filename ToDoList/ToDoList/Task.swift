@@ -1,5 +1,5 @@
 import Foundation
-struct Task: Identifiable {
+struct Task: Identifiable, Codable {
 
     let id: UUID
     var name: String
@@ -22,7 +22,7 @@ struct Task: Identifiable {
     }
 }
 
-enum TaskPriority: String, CaseIterable, Identifiable {
+enum TaskPriority: String, CaseIterable, Identifiable, Codable {
     var id: Self { self }
 
     case critical = "Критический"
