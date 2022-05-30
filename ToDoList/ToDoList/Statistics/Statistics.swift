@@ -5,23 +5,24 @@ struct Statistics: View {
     @StateObject var viewModel: StatisticsViewModel = StatisticsViewModel()
 
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Total: \(viewModel.tasks.count) tasks")
-                .font(.title)
-            doneChart
-            Text("Tasks by priorities")
-                .font(.title)
-            HStack {
-                priorityChart
-                Spacer()
+        GeometryReader { proxy in
+            VStack(alignment: .center) {
+                Text("Total: \(viewModel.tasks.count) tasks")
+                    .font(.title)
+                doneChart(width: proxy.size.width - 32)
+                Text("Tasks by priorities")
+                    .font(.title)
+                HStack {
+                    priorityChart
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
         }
     }
 
     @ViewBuilder
-    var doneChart: some View {
-        let width: CGFloat = 300
+    func doneChart(width: CGFloat) -> some View {
         let doneTasksCount = viewModel.doneTasksCount
         let totalTasksCount = viewModel.tasks.count
         VStack {
