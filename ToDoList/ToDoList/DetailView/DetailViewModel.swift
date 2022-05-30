@@ -1,5 +1,4 @@
 import Combine
-import CoreText
 import UIKit
 
 class DetailViewModel: ObservableObject {

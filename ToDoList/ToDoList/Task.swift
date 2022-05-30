@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 struct Task: Identifiable, Codable {
 
     let id: UUID
@@ -39,6 +40,19 @@ enum TaskPriority: CaseIterable, Identifiable, Codable {
             return StringProvider().medium
         case .low:
             return StringProvider().low
+        }
+    }
+
+    func color() -> Color {
+        switch self {
+        case .critical:
+                return .red
+        case .high:
+                return .orange
+        case .medium:
+                return .black
+        case .low:
+                return .green
         }
     }
 }

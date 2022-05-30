@@ -11,6 +11,8 @@
 		2290ADE728451A1900FD5370 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290ADE628451A1900FD5370 /* ImageRepository.swift */; };
 		2290ADE9284522FB00FD5370 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290ADE8284522FB00FD5370 /* ImageView.swift */; };
 		2290ADEC284526C000FD5370 /* AddImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290ADEB284526C000FD5370 /* AddImageButton.swift */; };
+		2290ADEE2845321900FD5370 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290ADED2845321900FD5370 /* Statistics.swift */; };
+		2290ADF0284532DC00FD5370 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290ADEF284532DC00FD5370 /* StatisticsViewModel.swift */; };
 		22B7B6E72841204E004EB58D /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B6E62841204E004EB58D /* ToDoListApp.swift */; };
 		22B7B6E92841204E004EB58D /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B6E82841204E004EB58D /* TaskListView.swift */; };
 		22B7B6EB28412050004EB58D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B7B6EA28412050004EB58D /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		2290ADE628451A1900FD5370 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		2290ADE8284522FB00FD5370 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		2290ADEB284526C000FD5370 /* AddImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageButton.swift; sourceTree = "<group>"; };
+		2290ADED2845321900FD5370 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		2290ADEF284532DC00FD5370 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		22B7B6E32841204E004EB58D /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B7B6E62841204E004EB58D /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		22B7B6E82841204E004EB58D /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,15 @@
 			path = "Helper Views";
 			sourceTree = "<group>";
 		};
+		2290ADF1284551D700FD5370 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				2290ADED2845321900FD5370 /* Statistics.swift */,
+				2290ADEF284532DC00FD5370 /* StatisticsViewModel.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		22B7B6DA2841204E004EB58D = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,7 @@
 			children = (
 				22B7B6E62841204E004EB58D /* ToDoListApp.swift */,
 				22B7B72A2843A557004EB58D /* DIContainer.swift */,
+				2290ADF1284551D700FD5370 /* Statistics */,
 				22B7B71E28437587004EB58D /* TaskList */,
 				22B7B71F284375D7004EB58D /* NewTask */,
 				22B7B72328437B87004EB58D /* DetailView */,
@@ -361,10 +375,12 @@
 				22B7B727284397B2004EB58D /* UserDefaults+CRUD.swift in Sources */,
 				22B7B71328412106004EB58D /* Task.swift in Sources */,
 				22B7B71928412DEE004EB58D /* NewTaskView.swift in Sources */,
+				2290ADF0284532DC00FD5370 /* StatisticsViewModel.swift in Sources */,
 				2290ADE9284522FB00FD5370 /* ImageView.swift in Sources */,
 				2290ADE728451A1900FD5370 /* ImageRepository.swift in Sources */,
 				22B7B71D2842697F004EB58D /* NewTaskViewModel.swift in Sources */,
 				22B7B71728412C7F004EB58D /* DetailView.swift in Sources */,
+				2290ADEE2845321900FD5370 /* Statistics.swift in Sources */,
 				22B7B72B2843A557004EB58D /* DIContainer.swift in Sources */,
 				22B7B725284396FD004EB58D /* TaskRepository.swift in Sources */,
 				22B7B72D2843D7F2004EB58D /* TaskRepositoryConstants.swift in Sources */,

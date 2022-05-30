@@ -48,6 +48,7 @@ struct TaskListView: View {
             }
             Spacer()
             priorityView(for: task.priority)
+                .foregroundColor(task.priority.color())
                 .font(.system(size: 22))
             statusView(for: task.isCompleted)
 
@@ -60,15 +61,14 @@ struct TaskListView: View {
         switch priority {
         case .critical:
             Image(systemName: "flame")
-                .foregroundColor(.red)
+
         case .high:
             Image(systemName: "chevron.up")
-                .foregroundColor(.orange)
+
         case .medium:
             Image(systemName: "equal")
         case .low:
             Image(systemName: "chevron.down")
-                .foregroundColor(.green)
         }
     }
 

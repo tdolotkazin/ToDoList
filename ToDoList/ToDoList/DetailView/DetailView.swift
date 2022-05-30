@@ -13,9 +13,11 @@ struct DetailView: View {
             textProperty(name: stringProvider.description, value: $viewModel.description)
             priority(value: $viewModel.priority)
             status(value: $viewModel.status)
-            ImageView(image: $viewModel.image, isEditMode: $viewModel.isEditing)
-            if viewModel.image == nil && viewModel.isEditing {
-                AddImageButton(showImagePicker: $isImagePickerShown)
+            Section {
+                ImageView(image: $viewModel.image, isEditMode: $viewModel.isEditing)
+                if viewModel.image == nil && viewModel.isEditing {
+                    AddImageButton(showImagePicker: $isImagePickerShown)
+                }
             }
             if viewModel.isEditing {
                 buttons
