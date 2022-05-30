@@ -15,7 +15,7 @@ struct NewTaskView: View {
             priorityPicker
             ImageView(image: $viewModel.image, isEditMode: .constant(true))
             if viewModel.image == nil {
-                addImageButton
+                AddImageButton(showImagePicker: $isImagePickerShown)
             }
             Spacer()
             VStack {
@@ -65,22 +65,6 @@ struct NewTaskView: View {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(viewModel.isValid ? .black : .gray, lineWidth: 2)
             )
-    }
-
-    @ViewBuilder
-    private var addImageButton: some View {
-        Button {
-            isImagePickerShown = true
-        } label: {
-            Text("Add photo")
-                .foregroundColor(.black)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(.black, lineWidth: 2)
-                )
-        }
-
     }
 }
 

@@ -6,10 +6,15 @@ class StatisticsViewModel: ObservableObject {
         tasks.filter { $0.isCompleted }.count
     }
     var repository = DIContainer.repository
+    var cancellables: Set<AnyCancellable> = []
 
     init() {
-//        tasks = repository.tasks
-        tasks = MockTasks.tasks
+        self.tasks = []
+        repository.$tasks
+            .sink { [unowned self] updatedTasks in
+                self.tasks = updatedTasks
+            }
+            .store(in: &cancellables)
     }
 
     func taskCount(by priority: TaskPriority) -> Int {

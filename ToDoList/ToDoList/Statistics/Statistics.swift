@@ -3,14 +3,15 @@ import SwiftUI
 struct Statistics: View {
 
     @StateObject var viewModel: StatisticsViewModel = StatisticsViewModel()
+    var stringProvider = DIContainer.stringProvider
 
     var body: some View {
         GeometryReader { proxy in
             VStack(alignment: .center) {
-                Text("Total: \(viewModel.tasks.count) tasks")
+                Text(stringProvider.totalTasks +  "\(viewModel.tasks.count)")
                     .font(.title)
                 doneChart(width: proxy.size.width - 32)
-                Text("Tasks by priorities")
+                Text(stringProvider.tasksByPriorities)
                     .font(.title)
                 HStack {
                     priorityChart
@@ -26,12 +27,7 @@ struct Statistics: View {
         let doneTasksCount = viewModel.doneTasksCount
         let totalTasksCount = viewModel.tasks.count
         VStack {
-            HStack {
-                Text("Done: \(doneTasksCount)")
-                Spacer()
-                Text("Not done: \(totalTasksCount - doneTasksCount)")
-            }
-            .frame(width: width)
+            doneChartHeader
             ZStack(alignment: .leading) {
                 Rectangle()
                     .foregroundColor(.red)
@@ -43,6 +39,14 @@ struct Statistics: View {
             .cornerRadius(10)
         }
         .padding()
+    }
+
+    private var doneChartHeader: some View {
+        HStack {
+            Text(stringProvider.done + ": \(viewModel.doneTasksCount)")
+            Spacer()
+            Text(stringProvider.notDone + ": \(viewModel.tasks.count - viewModel.doneTasksCount)")
+        }
     }
 
     @ViewBuilder

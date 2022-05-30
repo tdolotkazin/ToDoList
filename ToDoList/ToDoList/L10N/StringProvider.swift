@@ -15,10 +15,16 @@ struct StringProvider {
     var status: String { NSLocalizedString("status", comment: "")}
     var save: String { NSLocalizedString("save", comment: "")}
     var cancel: String { NSLocalizedString("cancel", comment: "")}
+    var addPhoto: String { NSLocalizedString("add photo", comment: "")}
 
     // Task priorities
     var critical: String { NSLocalizedString("critical", comment: "")}
     var high: String { NSLocalizedString("high", comment: "")}
     var medium: String { NSLocalizedString("medium", comment: "")}
     var low: String { NSLocalizedString("low", comment: "")}
+
+    // Statistics
+    var totalTasks: String { NSLocalizedString("total tasks", comment: "")}
+    var tasksByPriorities: String { NSLocalizedString("tasks by priorities", comment: "")}
+    var stats: String { NSLocalizedString("stats", comment: "")}
 }

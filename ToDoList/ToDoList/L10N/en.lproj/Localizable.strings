@@ -13,9 +13,15 @@
 "status" = "Status";
 "save" = "Save";
 "cancel" = "Cancel";
+"add photo" = "Add photo";
 
 //Task priorities
 "critical" = "Critical";
 "high" = "High";
 "medium" = "Medium";
 "low" = "Low";
+
+// Statistics
+"total tasks" = "Total tasks: ";
+"tasks by priorities" = "Tasks by priorities";
+"stats" = "Statistics";

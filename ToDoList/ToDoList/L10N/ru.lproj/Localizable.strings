@@ -13,9 +13,15 @@
 "status" = "Статус";
 "save" = "Сохранить";
 "cancel" = "Отменить";
+"add photo" = "Добавить фото";
 
 //Task priorities
 "critical" = "Критический";
 "high" = "Высокий";
 "medium" = "Средний";
 "low" = "Низкий";
+
+// Statistics
+"total tasks" = "Всего задач: ";
+"tasks by priorities" = "Задачи по приоритету";
+"stats" = "Статистика";

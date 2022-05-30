@@ -2,16 +2,18 @@ import SwiftUI
 
 @main
 struct ToDoListApp: App {
+
+    var stringProvider = DIContainer.stringProvider
     var body: some Scene {
         WindowGroup {
             TabView {
                 TaskListView(viewModel: TaskListViewModel())
                     .tabItem {
-                        Label("Task List", systemImage: "list.dash")
+                        Label(stringProvider.taskList, systemImage: "list.dash")
                     }
                 Statistics()
                     .tabItem {
-                        Label("Stats", systemImage: "chart.pie.fill")
+                        Label(stringProvider.stats, systemImage: "chart.pie.fill")
                     }
             }
         }
