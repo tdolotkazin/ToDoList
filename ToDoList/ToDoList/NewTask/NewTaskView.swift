@@ -6,12 +6,17 @@ struct NewTaskView: View {
     var stringProvider = StringProvider()
     @Environment(\.presentationMode)
     private var presentationMode
+    @State var isImagePickerShown = false
 
     var body: some View {
         VStack(spacing: 40) {
             textField(name: stringProvider.taskName, value: $viewModel.name)
             textField(name: stringProvider.description, value: $viewModel.description)
             priorityPicker
+            ImageView(image: $viewModel.image, isEditMode: .constant(true))
+            if viewModel.image == nil {
+                addImageButton
+            }
             Spacer()
             VStack {
                 Text(stringProvider.mandatoryFieldsLegend)
@@ -23,8 +28,10 @@ struct NewTaskView: View {
                     addButton
                 }
             }
-
         }.padding()
+            .sheet(isPresented: $isImagePickerShown) {
+                ImagePicker(image: $viewModel.image)
+            }
     }
 
     private func textField(name: String, value: Binding<String>) -> some View {
@@ -58,6 +65,22 @@ struct NewTaskView: View {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(viewModel.isValid ? .black : .gray, lineWidth: 2)
             )
+    }
+
+    @ViewBuilder
+    private var addImageButton: some View {
+        Button {
+            isImagePickerShown = true
+        } label: {
+            Text("Add photo")
+                .foregroundColor(.black)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(.black, lineWidth: 2)
+                )
+        }
+
     }
 }
 
