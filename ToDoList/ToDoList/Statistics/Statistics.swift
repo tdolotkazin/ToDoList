@@ -7,8 +7,10 @@ struct Statistics: View {
     var body: some View {
         VStack(alignment: .center) {
             Text("Total: \(viewModel.tasks.count) tasks")
+                .font(.title)
             doneChart
             Text("Tasks by priorities")
+                .font(.title)
             HStack {
                 priorityChart
                 Spacer()
@@ -56,7 +58,6 @@ struct Statistics: View {
                     Text(priority.localizedString() + ": \(count)")
                 }
             }
-
         }
     }
 }
