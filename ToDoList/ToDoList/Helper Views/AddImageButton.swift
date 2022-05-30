@@ -1,10 +1,3 @@
-//
-//  AddImageButton.swift
-//  ToDoList
-//
-//  Created by Timur Dolotkazin on 30.05.2022.
-//
-
 import SwiftUI
 
 struct AddImageButton: View {
