@@ -6,19 +6,22 @@ struct Task: Identifiable, Codable {
     var priority: TaskPriority
     var description: String?
     var isCompleted: Bool
+    var imageID: UUID?
 
     init(
         id: UUID = UUID(),
         name: String,
         priority: TaskPriority,
         description: String? = nil,
-        isCompleted: Bool = false
+        isCompleted: Bool = false,
+        imageID: UUID? = nil
     ) {
         self.id = id
         self.name = name
         self.priority = priority
         self.description = description
         self.isCompleted = isCompleted
+        self.imageID = imageID
     }
 }
 

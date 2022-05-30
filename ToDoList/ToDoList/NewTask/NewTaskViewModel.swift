@@ -1,16 +1,29 @@
 import Combine
+import UIKit
 
 class NewTaskViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var description: String = ""
     @Published var priority: TaskPriority = .low
+    @Published var image: UIImage?
+
     var isValid: Bool {
         !name.isEmpty
     }
-    var repository: TaskRepository = DIContainer.repository
+    var repository = DIContainer.repository
+    var imageRepository = DIContainer.imageRepository
 
     func addTask() {
-        let task = Task(name: name, priority: priority, description: description.isEmpty ? nil : description)
+        var imageID: UUID?
+        if let image = image {
+            imageID = imageRepository.save(image)
+        }
+        let task = Task(
+            name: name,
+            priority: priority,
+            description: description.isEmpty ? nil : description,
+            imageID: imageID
+        )
         repository.saveTask(task: task)
     }
 }

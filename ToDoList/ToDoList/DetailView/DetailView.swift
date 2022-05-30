@@ -5,6 +5,7 @@ struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
     @State var width: CGFloat = 0
     var stringProvider = StringProvider()
+    @State var isImagePickerShown = false
 
     var body: some View {
         List {
@@ -12,6 +13,10 @@ struct DetailView: View {
             textProperty(name: stringProvider.description, value: $viewModel.description)
             priority(value: $viewModel.priority)
             status(value: $viewModel.status)
+            ImageView(image: $viewModel.image, isEditMode: $viewModel.isEditing)
+            if viewModel.image == nil && viewModel.isEditing {
+                AddImageButton(showImagePicker: $isImagePickerShown)
+            }
             if viewModel.isEditing {
                 buttons
             } else {
@@ -22,6 +27,9 @@ struct DetailView: View {
                 }
             }
         }.navigationTitle(stringProvider.task)
+            .sheet(isPresented: $isImagePickerShown) {
+                ImagePicker(image: $viewModel.image)
+            }
     }
 
     private func textProperty(name: String, value: Binding<String>) -> some View {

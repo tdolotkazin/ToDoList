@@ -1,5 +1,6 @@
 import Combine
 import CoreText
+import UIKit
 
 class DetailViewModel: ObservableObject {
 
@@ -9,8 +10,13 @@ class DetailViewModel: ObservableObject {
     @Published var description: String
     @Published var priority: TaskPriority
     @Published var status: Bool
+    @Published var image: UIImage?
+    private var imageID: UUID?
+    private var cancellables: Set<AnyCancellable> = []
+    private var isLoading = false
 
-    var repository: TaskRepository = DIContainer.repository
+    var repository = DIContainer.repository
+    var imageRepository = DIContainer.imageRepository
 
     init(task: Task) {
         self.task = task
@@ -18,6 +24,25 @@ class DetailViewModel: ObservableObject {
         description = task.description ?? ""
         priority = task.priority
         status = task.isCompleted
+        imageID = task.imageID
+        $image
+            .sink { [weak self] image in
+                guard let image = image, self?.isLoading != true else {
+                    return
+                }
+                self?.imageID = self?.imageRepository.save(image)
+            }
+            .store(in: &cancellables)
+
+        guard let imageID = imageID else { return }
+        imageRepository.loadImage(fileID: imageID)
+            .receive(on: RunLoop.main)
+            .sink { image in
+                self.isLoading = true
+                self.image = image
+                self.isLoading = false
+            }
+            .store(in: &cancellables)
     }
 
     func saveTask() {
@@ -25,6 +50,7 @@ class DetailViewModel: ObservableObject {
         task.description = description.isEmpty ? nil : description
         task.priority = priority
         task.isCompleted = status
+        task.imageID = imageID
         repository.saveTask(task: task)
     }
 }
