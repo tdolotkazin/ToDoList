@@ -4,7 +4,7 @@ import Foundation
 class TaskRepository: ObservableObject {
 
     @Published var tasks = [Task]()
-    let userDefaults = UserDefaults.standard
+    private let userDefaults = UserDefaults.standard
     private var cancellables: Set<AnyCancellable> = []
     private let constants = TaskRepositoryConstants()
     private let imageRepository = DIContainer.imageRepository

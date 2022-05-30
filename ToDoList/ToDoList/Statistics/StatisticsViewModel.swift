@@ -5,8 +5,8 @@ class StatisticsViewModel: ObservableObject {
     var doneTasksCount: Int {
         tasks.filter { $0.isCompleted }.count
     }
-    var repository = DIContainer.repository
-    var cancellables: Set<AnyCancellable> = []
+    private var repository = DIContainer.repository
+    private var cancellables: Set<AnyCancellable> = []
 
     init() {
         self.tasks = []

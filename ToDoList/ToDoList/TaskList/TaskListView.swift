@@ -2,8 +2,8 @@ import SwiftUI
 
 struct TaskListView: View {
 
-    @StateObject var viewModel: TaskListViewModel
-    var stringProvider = DIContainer.stringProvider
+    @StateObject var viewModel: TaskListViewModel = TaskListViewModel()
+    private var stringProvider = DIContainer.stringProvider
 
     var body: some View {
         NavigationView {
@@ -36,7 +36,7 @@ struct TaskListView: View {
     }
 
     @ViewBuilder
-    func taskView(for task: Task) -> some View {
+    private func taskView(for task: Task) -> some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(task.name)
@@ -47,7 +47,7 @@ struct TaskListView: View {
                 }
             }
             Spacer()
-            priorityView(for: task.priority)
+            Image(systemName: task.priority.iconName())
                 .foregroundColor(task.priority.color())
                 .font(.system(size: 22))
             statusView(for: task.isCompleted)
@@ -57,29 +57,13 @@ struct TaskListView: View {
     }
 
     @ViewBuilder
-    func priorityView(for priority: TaskPriority) -> some View {
-        switch priority {
-        case .critical:
-            Image(systemName: "flame")
-
-        case .high:
-            Image(systemName: "chevron.up")
-
-        case .medium:
-            Image(systemName: "equal")
-        case .low:
-            Image(systemName: "chevron.down")
-        }
-    }
-
-    @ViewBuilder
-    func statusView(for isCompleted: Bool) -> some View {
+    private func statusView(for isCompleted: Bool) -> some View {
         Image(systemName: isCompleted ? "checkmark.square" : "square")
     }
 }
 
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskListView(viewModel: TaskListViewModel(tasks: MockTasks.tasks))
+        TaskListView()
     }
 }

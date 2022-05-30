@@ -2,8 +2,8 @@ import SwiftUI
 
 struct Statistics: View {
 
-    @StateObject var viewModel: StatisticsViewModel = StatisticsViewModel()
-    var stringProvider = DIContainer.stringProvider
+    @StateObject private var viewModel: StatisticsViewModel = StatisticsViewModel()
+    private var stringProvider = DIContainer.stringProvider
 
     var body: some View {
         GeometryReader { proxy in
@@ -23,7 +23,7 @@ struct Statistics: View {
     }
 
     @ViewBuilder
-    func doneChart(width: CGFloat) -> some View {
+    private func doneChart(width: CGFloat) -> some View {
         let doneTasksCount = viewModel.doneTasksCount
         let totalTasksCount = viewModel.tasks.count
         VStack {
@@ -50,7 +50,7 @@ struct Statistics: View {
     }
 
     @ViewBuilder
-    var priorityChart: some View {
+    private var priorityChart: some View {
         let totalTasksCount = viewModel.tasks.count
         let width: CGFloat = 300
         VStack(alignment: .leading) {

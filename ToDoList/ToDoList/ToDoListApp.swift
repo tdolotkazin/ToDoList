@@ -7,7 +7,7 @@ struct ToDoListApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                TaskListView(viewModel: TaskListViewModel())
+                TaskListView()
                     .tabItem {
                         Label(stringProvider.taskList, systemImage: "list.dash")
                     }

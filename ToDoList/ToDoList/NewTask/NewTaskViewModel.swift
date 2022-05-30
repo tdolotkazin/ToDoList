@@ -10,8 +10,8 @@ class NewTaskViewModel: ObservableObject {
     var isValid: Bool {
         !name.isEmpty
     }
-    var repository = DIContainer.repository
-    var imageRepository = DIContainer.imageRepository
+    private var repository = DIContainer.repository
+    private var imageRepository = DIContainer.imageRepository
 
     func addTask() {
         var imageID: UUID?

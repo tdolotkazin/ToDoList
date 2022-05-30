@@ -55,4 +55,17 @@ enum TaskPriority: CaseIterable, Identifiable, Codable {
                 return .green
         }
     }
+
+    func iconName() -> String {
+        switch self {
+        case .critical:
+            return "flame"
+        case .high:
+            return "chevron.up"
+        case .medium:
+            return "equal"
+        case .low:
+            return "chevron.down"
+        }
+    }
 }

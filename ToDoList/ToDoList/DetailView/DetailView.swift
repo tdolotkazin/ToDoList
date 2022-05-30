@@ -4,8 +4,8 @@ struct DetailView: View {
 
     @StateObject var viewModel: DetailViewModel
     @State var width: CGFloat = 0
-    var stringProvider = StringProvider()
     @State var isImagePickerShown = false
+    var stringProvider = StringProvider()
 
     var body: some View {
         List {

@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct ImageView: View {
-    
+
     @Binding var image: UIImage?
     @Binding var isEditMode: Bool
-    
+
     var body: some View {
         if let image = image {
             HStack {
@@ -28,7 +28,7 @@ struct ImageView: View {
                     }
                 }
                 Spacer()
-            }            
+            }
         }
     }
 }

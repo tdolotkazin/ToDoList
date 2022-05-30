@@ -14,8 +14,8 @@ class DetailViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private var isLoading = false
 
-    var repository = DIContainer.repository
-    var imageRepository = DIContainer.imageRepository
+    private var repository = DIContainer.repository
+    private var imageRepository = DIContainer.imageRepository
 
     init(task: Task) {
         self.task = task

@@ -3,8 +3,8 @@ import Combine
 
 class TaskListViewModel: ObservableObject {
     @Published var tasks: [Task]
-    var repository: TaskRepository = DIContainer.repository
-    var cancellables: Set<AnyCancellable> = []
+    private var repository: TaskRepository = DIContainer.repository
+    private var cancellables: Set<AnyCancellable> = []
 
     init(tasks: [Task] = []) {
         self.tasks = tasks

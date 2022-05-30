@@ -2,11 +2,11 @@ import SwiftUI
 
 struct NewTaskView: View {
 
-    @StateObject var viewModel = NewTaskViewModel()
-    var stringProvider = StringProvider()
+    @StateObject private var viewModel = NewTaskViewModel()
+    @State private var isImagePickerShown = false
+    private var stringProvider = StringProvider()
     @Environment(\.presentationMode)
     private var presentationMode
-    @State var isImagePickerShown = false
 
     var body: some View {
         VStack(spacing: 40) {
