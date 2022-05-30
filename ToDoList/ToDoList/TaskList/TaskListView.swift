@@ -3,7 +3,7 @@ import SwiftUI
 struct TaskListView: View {
 
     @StateObject var viewModel: TaskListViewModel
-    var stringProvider = StringProvider()
+    var stringProvider = DIContainer.stringProvider
 
     var body: some View {
         NavigationView {

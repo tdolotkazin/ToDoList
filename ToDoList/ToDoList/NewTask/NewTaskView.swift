@@ -3,17 +3,18 @@ import SwiftUI
 struct NewTaskView: View {
 
     @StateObject var viewModel = NewTaskViewModel()
+    var stringProvider = StringProvider()
     @Environment(\.presentationMode)
     private var presentationMode
 
     var body: some View {
         VStack(spacing: 40) {
-            textField(name: "Название задачи *", value: $viewModel.name)
-            textField(name: "Описание", value: $viewModel.description)
+            textField(name: stringProvider.taskName, value: $viewModel.name)
+            textField(name: stringProvider.description, value: $viewModel.description)
             priorityPicker
             Spacer()
             VStack {
-                Text("* - обязательные поля для заполнения")
+                Text(stringProvider.mandatoryFieldsLegend)
                     .foregroundColor(.gray)
                 Button {
                     viewModel.addTask()
@@ -29,7 +30,7 @@ struct NewTaskView: View {
     private func textField(name: String, value: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text(name)
-            TextField("Введите текст", text: value)
+            TextField(stringProvider.enterText, text: value)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
@@ -40,17 +41,17 @@ struct NewTaskView: View {
 
     private var priorityPicker: some View {
         VStack(alignment: .leading) {
-            Text("Приоритет")
-            Picker("Приоритет", selection: $viewModel.priority) {
+            Text(stringProvider.priority)
+            Picker(stringProvider.priority, selection: $viewModel.priority) {
                 ForEach(TaskPriority.allCases) { priority in
-                    Text(priority.rawValue)
+                    Text(priority.localizedString())
                 }
             }.pickerStyle(.segmented)
         }
     }
 
     private var addButton: some View {
-        Text("Добавить")
+        Text(stringProvider.add)
             .foregroundColor(viewModel.isValid ? .black : .gray)
             .padding()
             .overlay(

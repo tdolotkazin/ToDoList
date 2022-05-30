@@ -1,2 +1,5 @@
 "add new task" = "Add new task";
 "task list" = "Task List";
+"task name" = "Task Name *";
+"description" = "Description";
+"mandatory fields legend" = "* - mandatory fields";

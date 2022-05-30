@@ -4,11 +4,12 @@ struct DetailView: View {
 
     @StateObject var viewModel: DetailViewModel
     @State var width: CGFloat = 0
+    var stringProvider = StringProvider()
 
     var body: some View {
         List {
-            textProperty(name: "Задача", value: $viewModel.name)
-            textProperty(name: "Description", value: $viewModel.description)
+            textProperty(name: stringProvider.task, value: $viewModel.name)
+            textProperty(name: stringProvider.description, value: $viewModel.description)
             priority(value: $viewModel.priority)
             status(value: $viewModel.status)
             if viewModel.isEditing {
@@ -17,10 +18,10 @@ struct DetailView: View {
                 Button {
                     viewModel.isEditing = true
                 } label: {
-                    Text("Редактировать")
+                    Text(stringProvider.edit)
                 }
             }
-        }.navigationTitle("Задача")
+        }.navigationTitle(stringProvider.task)
     }
 
     private func textProperty(name: String, value: Binding<String>) -> some View {
@@ -52,18 +53,18 @@ struct DetailView: View {
         Section {
             if viewModel.isEditing {
                 VStack(alignment: .leading) {
-                    Text("Приоритет")
-                    Picker("Приоритет", selection: value) {
+                    Text(stringProvider.priority)
+                    Picker(stringProvider.priority, selection: value) {
                         ForEach(TaskPriority.allCases) { priority in
-                            Text(priority.rawValue)
+                            Text(priority.localizedString())
                         }
                     }.pickerStyle(.segmented)
                 }
             } else {
                 HStack {
-                    Text("Приоритет")
+                    Text(stringProvider.priority)
                     Spacer()
-                    Text(value.wrappedValue.rawValue)
+                    Text(value.wrappedValue.localizedString())
                 }
             }
         }
@@ -73,13 +74,13 @@ struct DetailView: View {
         Section {
             if viewModel.isEditing {
                 Toggle(isOn: value) {
-                    Text("Выполнено")
+                    Text(stringProvider.done)
                 }
             } else {
                 HStack {
-                    Text("Статус")
+                    Text(stringProvider.status)
                     Spacer()
-                    Text(value.wrappedValue ? "Выполнено" : "Не выполнено")
+                    Text(value.wrappedValue ? stringProvider.done : stringProvider.notDone)
                 }
             }
         }
@@ -92,7 +93,7 @@ struct DetailView: View {
                     viewModel.saveTask()
                     viewModel.isEditing = false
                 } label: {
-                    Text("Сохранить")
+                    Text(stringProvider.save)
                         .foregroundColor(.green)
                         .padding()
                         .overlay(
@@ -104,7 +105,7 @@ struct DetailView: View {
                 Button {
                     viewModel.isEditing = false
                 } label: {
-                    Text("Отменить")
+                    Text(stringProvider.cancel)
                         .foregroundColor(.red)
                         .padding()
                         .overlay(

@@ -22,11 +22,20 @@ struct Task: Identifiable, Codable {
     }
 }
 
-enum TaskPriority: String, CaseIterable, Identifiable, Codable {
+enum TaskPriority: CaseIterable, Identifiable, Codable {
     var id: Self { self }
 
-    case critical = "Критический"
-    case high = "Высокий"
-    case medium = "Средний"
-    case low = "Низкий"
+    case critical, high, medium, low
+    func localizedString() -> String {
+        switch self {
+        case .critical:
+            return StringProvider().critical
+        case .high:
+            return StringProvider().high
+        case .medium:
+            return StringProvider().medium
+        case .low:
+            return StringProvider().low
+        }
+    }
 }
