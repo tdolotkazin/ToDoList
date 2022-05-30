@@ -21,7 +21,6 @@
 		22B7B72128437605004EB58D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B72028437605004EB58D /* DetailViewModel.swift */; };
 		22B7B725284396FD004EB58D /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B724284396FD004EB58D /* TaskRepository.swift */; };
 		22B7B727284397B2004EB58D /* UserDefaults+CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B726284397B1004EB58D /* UserDefaults+CRUD.swift */; };
-		22B7B7292843A1BD004EB58D /* MockTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B7282843A1BD004EB58D /* MockTaskRepository.swift */; };
 		22B7B72B2843A557004EB58D /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B72A2843A557004EB58D /* DIContainer.swift */; };
 		22B7B72D2843D7F2004EB58D /* TaskRepositoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B72C2843D7F2004EB58D /* TaskRepositoryConstants.swift */; };
 		22B7B72F2843DA03004EB58D /* StringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7B72E2843DA03004EB58D /* StringProvider.swift */; };
@@ -63,7 +62,6 @@
 		22B7B72028437605004EB58D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		22B7B724284396FD004EB58D /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		22B7B726284397B1004EB58D /* UserDefaults+CRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CRUD.swift"; sourceTree = "<group>"; };
-		22B7B7282843A1BD004EB58D /* MockTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTaskRepository.swift; sourceTree = "<group>"; };
 		22B7B72A2843A557004EB58D /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		22B7B72C2843D7F2004EB58D /* TaskRepositoryConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepositoryConstants.swift; sourceTree = "<group>"; };
 		22B7B72E2843DA03004EB58D /* StringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProvider.swift; sourceTree = "<group>"; };
@@ -96,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2290ADE328450D9500FD5370 /* L10N */ = {
+			isa = PBXGroup;
+			children = (
+				22B7B72E2843DA03004EB58D /* StringProvider.swift */,
+				22B7B7342843DA5F004EB58D /* Localizable.strings */,
+			);
+			path = L10N;
+			sourceTree = "<group>";
+		};
 		22B7B6DA2841204E004EB58D = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				22B7B6E62841204E004EB58D /* ToDoListApp.swift */,
-				22B7B72E2843DA03004EB58D /* StringProvider.swift */,
-				22B7B7342843DA5F004EB58D /* Localizable.strings */,
 				22B7B72A2843A557004EB58D /* DIContainer.swift */,
 				22B7B71E28437587004EB58D /* TaskList */,
 				22B7B71F284375D7004EB58D /* NewTask */,
@@ -130,6 +135,7 @@
 				22B7B72C2843D7F2004EB58D /* TaskRepositoryConstants.swift */,
 				22B7B726284397B1004EB58D /* UserDefaults+CRUD.swift */,
 				22B7B6EA28412050004EB58D /* Assets.xcassets */,
+				2290ADE328450D9500FD5370 /* L10N */,
 				22B7B6EC28412050004EB58D /* Preview Content */,
 			);
 			path = ToDoList;
@@ -140,7 +146,6 @@
 			children = (
 				22B7B6ED28412050004EB58D /* Preview Assets.xcassets */,
 				22B7B7142841232D004EB58D /* MockTasks.swift */,
-				22B7B7282843A1BD004EB58D /* MockTaskRepository.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -333,7 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22B7B7292843A1BD004EB58D /* MockTaskRepository.swift in Sources */,
 				22B7B727284397B2004EB58D /* UserDefaults+CRUD.swift in Sources */,
 				22B7B71328412106004EB58D /* Task.swift in Sources */,
 				22B7B71928412DEE004EB58D /* NewTaskView.swift in Sources */,

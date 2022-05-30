@@ -62,9 +62,7 @@ struct NewTaskView: View {
 }
 
 struct NewTaskView_Previews: PreviewProvider {
-    static let repository = MockTaskRepository()
     static var previews: some View {
         NewTaskView()
-            .environmentObject(repository)
     }
 }

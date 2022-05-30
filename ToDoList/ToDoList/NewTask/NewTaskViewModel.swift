@@ -7,7 +7,7 @@ class NewTaskViewModel: ObservableObject {
     var isValid: Bool {
         !name.isEmpty
     }
-    var repository: TaskRepositoryProtocol = DIContainer.repository
+    var repository: TaskRepository = DIContainer.repository
 
     func addTask() {
         let task = Task(name: name, priority: priority, description: description.isEmpty ? nil : description)

@@ -1,0 +1,21 @@
+"add new task" = "Add new task";
+"task list" = "Task List";
+"task name" = "Task Name *";
+"description" = "Description";
+"mandatory fields legend" = "* - mandatory fields";
+"enter text" = "Enter text";
+"priority" = "Priority";
+"add" = "Add";
+"task" = "Task";
+"edit" = "Edit";
+"done" = "Done";
+"not done" = "Not done";
+"status" = "Status";
+"save" = "Save";
+"cancel" = "Cancel";
+
+//Task priorities
+"critical" = "Critical";
+"high" = "High";
+"medium" = "Medium";
+"low" = "Low";

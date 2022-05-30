@@ -10,7 +10,7 @@ class DetailViewModel: ObservableObject {
     @Published var priority: TaskPriority
     @Published var status: Bool
 
-    var repository: TaskRepositoryProtocol = DIContainer.repository
+    var repository: TaskRepository = DIContainer.repository
 
     init(task: Task) {
         self.task = task

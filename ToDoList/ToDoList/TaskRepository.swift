@@ -1,12 +1,7 @@
 import Combine
 import Foundation
 
-protocol TaskRepositoryProtocol {
-    var tasks: [Task] { get }
-    func saveTask(task: Task)
-}
-
-class TaskRepository: TaskRepositoryProtocol, ObservableObject {
+class TaskRepository: ObservableObject {
 
     @Published var tasks = [Task]()
     let userDefaults = UserDefaults.standard
